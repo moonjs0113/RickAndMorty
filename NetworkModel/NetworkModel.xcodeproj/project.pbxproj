@@ -7,35 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C77558C6286F425800B99CF7 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77558C5286F425800B99CF7 /* HTTPMethod.swift */; };
 		C7987A9B286F331C001F057A /* NetworkModelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987A9A286F331C001F057A /* NetworkModelApp.swift */; };
 		C7987A9D286F331C001F057A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987A9C286F331C001F057A /* ContentView.swift */; };
 		C7987A9F286F331C001F057A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7987A9E286F331C001F057A /* Assets.xcassets */; };
 		C7987AA2286F331C001F057A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7987AA1286F331C001F057A /* Preview Assets.xcassets */; };
-		C7987AA9286F340F001F057A /* CleanFishService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987AA8286F340F001F057A /* CleanFishService.swift */; };
-		C7987AAC286F3468001F057A /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987AAB286F3468001F057A /* Route.swift */; };
-		C7987AAF286F36EC001F057A /* RNMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987AAE286F36EC001F057A /* RNMService.swift */; };
-		C7987AB1286F3704001F057A /* RouteProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987AB0286F3704001F057A /* RouteProtocol.swift */; };
+		C7987AAF286F36EC001F057A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987AAE286F36EC001F057A /* NetworkService.swift */; };
+		C7987AB1286F3704001F057A /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987AB0286F3704001F057A /* Route.swift */; };
 		C7987AB3286F3767001F057A /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987AB2286F3767001F057A /* Character.swift */; };
 		C7987AB5286F3773001F057A /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987AB4286F3773001F057A /* Info.swift */; };
-		C7987AB7286F3782001F057A /* RNMNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987AB6286F3782001F057A /* RNMNetworkManager.swift */; };
-		C7987AB9286F381B001F057A /* RNMNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987AB8286F381B001F057A /* RNMNetworkError.swift */; };
+		C7987AB7286F3782001F057A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987AB6286F3782001F057A /* NetworkManager.swift */; };
+		C7987AB9286F381B001F057A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987AB8286F381B001F057A /* NetworkError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C77558C5286F425800B99CF7 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		C7987A97286F331C001F057A /* NetworkModel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkModel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7987A9A286F331C001F057A /* NetworkModelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModelApp.swift; sourceTree = "<group>"; };
 		C7987A9C286F331C001F057A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C7987A9E286F331C001F057A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7987AA1286F331C001F057A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C7987AA8286F340F001F057A /* CleanFishService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CleanFishService.swift; path = ../../../../Pictures/CleanFishService.swift; sourceTree = "<group>"; };
 		C7987AAA286F343F001F057A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		C7987AAB286F3468001F057A /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
-		C7987AAE286F36EC001F057A /* RNMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNMService.swift; sourceTree = "<group>"; };
-		C7987AB0286F3704001F057A /* RouteProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteProtocol.swift; sourceTree = "<group>"; };
+		C7987AAE286F36EC001F057A /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		C7987AB0286F3704001F057A /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		C7987AB2286F3767001F057A /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		C7987AB4286F3773001F057A /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
-		C7987AB6286F3782001F057A /* RNMNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNMNetworkManager.swift; sourceTree = "<group>"; };
-		C7987AB8286F381B001F057A /* RNMNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNMNetworkError.swift; sourceTree = "<group>"; };
+		C7987AB6286F3782001F057A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		C7987AB8286F381B001F057A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +47,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C77558C4286F41F700B99CF7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C7987AB2286F3767001F057A /* Character.swift */,
+				C7987AB4286F3773001F057A /* Info.swift */,
+				C77558C5286F425800B99CF7 /* HTTPMethod.swift */,
+				C7987AB0286F3704001F057A /* Route.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		C7987A8E286F331C001F057A = {
 			isa = PBXGroup;
 			children = (
@@ -71,9 +80,10 @@
 				C7987AAA286F343F001F057A /* Info.plist */,
 				C7987A9A286F331C001F057A /* NetworkModelApp.swift */,
 				C7987A9C286F331C001F057A /* ContentView.swift */,
-				C7987AA8286F340F001F057A /* CleanFishService.swift */,
-				C7987AAB286F3468001F057A /* Route.swift */,
-				C7987AAD286F36DA001F057A /* Example Code */,
+				C77558C4286F41F700B99CF7 /* Model */,
+				C7987AAE286F36EC001F057A /* NetworkService.swift */,
+				C7987AB6286F3782001F057A /* NetworkManager.swift */,
+				C7987AB8286F381B001F057A /* NetworkError.swift */,
 				C7987A9E286F331C001F057A /* Assets.xcassets */,
 				C7987AA0286F331C001F057A /* Preview Content */,
 			);
@@ -86,19 +96,6 @@
 				C7987AA1286F331C001F057A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		C7987AAD286F36DA001F057A /* Example Code */ = {
-			isa = PBXGroup;
-			children = (
-				C7987AAE286F36EC001F057A /* RNMService.swift */,
-				C7987AB2286F3767001F057A /* Character.swift */,
-				C7987AB0286F3704001F057A /* RouteProtocol.swift */,
-				C7987AB4286F3773001F057A /* Info.swift */,
-				C7987AB6286F3782001F057A /* RNMNetworkManager.swift */,
-				C7987AB8286F381B001F057A /* RNMNetworkError.swift */,
-			);
-			path = "Example Code";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,16 +168,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7987AAF286F36EC001F057A /* RNMService.swift in Sources */,
-				C7987AB9286F381B001F057A /* RNMNetworkError.swift in Sources */,
+				C7987AAF286F36EC001F057A /* NetworkService.swift in Sources */,
+				C7987AB9286F381B001F057A /* NetworkError.swift in Sources */,
 				C7987AB5286F3773001F057A /* Info.swift in Sources */,
-				C7987AB1286F3704001F057A /* RouteProtocol.swift in Sources */,
+				C7987AB1286F3704001F057A /* Route.swift in Sources */,
 				C7987AB3286F3767001F057A /* Character.swift in Sources */,
+				C77558C6286F425800B99CF7 /* HTTPMethod.swift in Sources */,
 				C7987A9D286F331C001F057A /* ContentView.swift in Sources */,
-				C7987AB7286F3782001F057A /* RNMNetworkManager.swift in Sources */,
-				C7987AAC286F3468001F057A /* Route.swift in Sources */,
+				C7987AB7286F3782001F057A /* NetworkManager.swift in Sources */,
 				C7987A9B286F331C001F057A /* NetworkModelApp.swift in Sources */,
-				C7987AA9286F340F001F057A /* CleanFishService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

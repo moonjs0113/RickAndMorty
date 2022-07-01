@@ -1,5 +1,5 @@
 //
-//  RNMNetworkManagerError.swift
+//  NetworkError.swift
 //  NetworkModel
 //
 //  Created by Moon Jongseek on 2022/07/01.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum RNMNetworkError: Error {
+enum NetworkError: Error {
     case invalidURL
     case nilResponse
     case managerIsNil

@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct Info: Decodable {
+struct CharacterList: Codable {
+    var info: Info?
+    var results: [Character]?
+}
+
+struct Info: Codable {
     let count: Int
     let pages: Int
     let next: String?

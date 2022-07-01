@@ -7,18 +7,21 @@
 
 import Foundation
 
-enum RickAndMortyService {
+enum NetworkService {
     static let baseURL = "https://rickandmortyapi.com/api/"
-    static let manager = RNMNetworkManager(baseURL: baseURL)
+    static let manager = NetworkManager(baseURL: baseURL)
 }
 
-extension RickAndMortyService {
-    enum CharacterRoute: RouteProtocol {
+extension NetworkService {
+    enum CharacterRoute: Route {
+        case allCharacter
         case id(Int)
         case base([Filters])
         
         var stringValue: String {
             switch self {
+            case .allCharacter:
+                return "character"
             case .id(let id):
                 return "character/\(id)"
             case .base(let characterFilters):
@@ -28,27 +31,43 @@ extension RickAndMortyService {
             }
         }
         
-        var method: String {
+        var method: HTTPMethod {
             switch self {
+            case .allCharacter:
+                return .GET
             case .id:
-                return "GET"
+                return .GET
             case .base:
-                return "GET"
+                return .GET
             }
         }
         
-        static func searchBy(id: Int, completion: @escaping(Character?, Error?) -> ()) {
-            manager.sendRequest(route: Self.id(id), decodeTo: Character.self) { completion($0, $1)}
+        static func getCharacterCount(completion: @escaping(Info?, NetworkError?) -> ()) {
+            manager.sendRequest(route: Self.allCharacter,
+                                decodeTo: CharacterList.self) {
+                completion($0?.info, $1)
+            }
+        }
+        
+        static func searchBy(id: Int, completion: @escaping(Character?, NetworkError?) -> ()) {
+            manager.sendRequest(route: Self.id(id),
+                                decodeTo: Character.self) {
+                completion($0, $1)
+            }
         }
 
-        static func searchWith(filters: [Filters], completion: @escaping([Character]?, Error?) -> ()) {
+        static func searchWith(filters: [Filters], completion: @escaping([Character]?, NetworkError?) -> ()) {
             
             struct SearchWithFiltersResponse: Decodable {
                 let info: Info
                 let results: [Character]
             }
             
-            manager.sendRequest(route: Self.base(filters), decodeTo: SearchWithFiltersResponse.self) { completion($0?.results, $1)}
+            manager.sendRequest(route: Self.base(filters),
+                                decodeTo: SearchWithFiltersResponse.self) {
+                completion($0?.results, $1)
+                
+            }
         }
     }
     
