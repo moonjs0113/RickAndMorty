@@ -7,22 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C7987A81286F31BD001F057A /* NetworkStudyAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987A80286F31BD001F057A /* NetworkStudyAppApp.swift */; };
-		C7987A83286F31BD001F057A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987A82286F31BD001F057A /* ContentView.swift */; };
-		C7987A85286F31BE001F057A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7987A84286F31BE001F057A /* Assets.xcassets */; };
-		C7987A88286F31BE001F057A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7987A87286F31BE001F057A /* Preview Assets.xcassets */; };
+		C7987A9B286F331C001F057A /* NetworkModelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987A9A286F331C001F057A /* NetworkModelApp.swift */; };
+		C7987A9D286F331C001F057A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987A9C286F331C001F057A /* ContentView.swift */; };
+		C7987A9F286F331C001F057A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7987A9E286F331C001F057A /* Assets.xcassets */; };
+		C7987AA2286F331C001F057A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7987AA1286F331C001F057A /* Preview Assets.xcassets */; };
+		C7987AA9286F340F001F057A /* CleanFishService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987AA8286F340F001F057A /* CleanFishService.swift */; };
+		C7987AAC286F3468001F057A /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987AAB286F3468001F057A /* Route.swift */; };
+		C7987AAF286F36EC001F057A /* RNMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987AAE286F36EC001F057A /* RNMService.swift */; };
+		C7987AB1286F3704001F057A /* RouteProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987AB0286F3704001F057A /* RouteProtocol.swift */; };
+		C7987AB3286F3767001F057A /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987AB2286F3767001F057A /* Character.swift */; };
+		C7987AB5286F3773001F057A /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987AB4286F3773001F057A /* Info.swift */; };
+		C7987AB7286F3782001F057A /* RNMNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987AB6286F3782001F057A /* RNMNetworkManager.swift */; };
+		C7987AB9286F381B001F057A /* RNMNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987AB8286F381B001F057A /* RNMNetworkError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C7987A7D286F31BD001F057A /* NetworkStudyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkStudyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7987A80286F31BD001F057A /* NetworkStudyAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStudyAppApp.swift; sourceTree = "<group>"; };
-		C7987A82286F31BD001F057A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		C7987A84286F31BE001F057A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C7987A87286F31BE001F057A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C7987A97286F331C001F057A /* NetworkModel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkModel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7987A9A286F331C001F057A /* NetworkModelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModelApp.swift; sourceTree = "<group>"; };
+		C7987A9C286F331C001F057A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C7987A9E286F331C001F057A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C7987AA1286F331C001F057A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C7987AA8286F340F001F057A /* CleanFishService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CleanFishService.swift; path = ../../../../Pictures/CleanFishService.swift; sourceTree = "<group>"; };
+		C7987AAA286F343F001F057A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C7987AAB286F3468001F057A /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		C7987AAE286F36EC001F057A /* RNMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNMService.swift; sourceTree = "<group>"; };
+		C7987AB0286F3704001F057A /* RouteProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteProtocol.swift; sourceTree = "<group>"; };
+		C7987AB2286F3767001F057A /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		C7987AB4286F3773001F057A /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		C7987AB6286F3782001F057A /* RNMNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNMNetworkManager.swift; sourceTree = "<group>"; };
+		C7987AB8286F381B001F057A /* RNMNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RNMNetworkError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C7987A7A286F31BD001F057A /* Frameworks */ = {
+		C7987A94286F331C001F057A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -32,77 +49,94 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C7987A74286F31BD001F057A = {
+		C7987A8E286F331C001F057A = {
 			isa = PBXGroup;
 			children = (
-				C7987A7F286F31BD001F057A /* NetworkStudyApp */,
-				C7987A7E286F31BD001F057A /* Products */,
+				C7987A99286F331C001F057A /* NetworkModel */,
+				C7987A98286F331C001F057A /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		C7987A7E286F31BD001F057A /* Products */ = {
+		C7987A98286F331C001F057A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C7987A7D286F31BD001F057A /* NetworkStudyApp.app */,
+				C7987A97286F331C001F057A /* NetworkModel.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C7987A7F286F31BD001F057A /* NetworkStudyApp */ = {
+		C7987A99286F331C001F057A /* NetworkModel */ = {
 			isa = PBXGroup;
 			children = (
-				C7987A80286F31BD001F057A /* NetworkStudyAppApp.swift */,
-				C7987A82286F31BD001F057A /* ContentView.swift */,
-				C7987A84286F31BE001F057A /* Assets.xcassets */,
-				C7987A86286F31BE001F057A /* Preview Content */,
+				C7987AAA286F343F001F057A /* Info.plist */,
+				C7987A9A286F331C001F057A /* NetworkModelApp.swift */,
+				C7987A9C286F331C001F057A /* ContentView.swift */,
+				C7987AA8286F340F001F057A /* CleanFishService.swift */,
+				C7987AAB286F3468001F057A /* Route.swift */,
+				C7987AAD286F36DA001F057A /* Example Code */,
+				C7987A9E286F331C001F057A /* Assets.xcassets */,
+				C7987AA0286F331C001F057A /* Preview Content */,
 			);
-			path = NetworkStudyApp;
+			path = NetworkModel;
 			sourceTree = "<group>";
 		};
-		C7987A86286F31BE001F057A /* Preview Content */ = {
+		C7987AA0286F331C001F057A /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				C7987A87286F31BE001F057A /* Preview Assets.xcassets */,
+				C7987AA1286F331C001F057A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C7987AAD286F36DA001F057A /* Example Code */ = {
+			isa = PBXGroup;
+			children = (
+				C7987AAE286F36EC001F057A /* RNMService.swift */,
+				C7987AB2286F3767001F057A /* Character.swift */,
+				C7987AB0286F3704001F057A /* RouteProtocol.swift */,
+				C7987AB4286F3773001F057A /* Info.swift */,
+				C7987AB6286F3782001F057A /* RNMNetworkManager.swift */,
+				C7987AB8286F381B001F057A /* RNMNetworkError.swift */,
+			);
+			path = "Example Code";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C7987A7C286F31BD001F057A /* NetworkStudyApp */ = {
+		C7987A96286F331C001F057A /* NetworkModel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C7987A8B286F31BE001F057A /* Build configuration list for PBXNativeTarget "NetworkStudyApp" */;
+			buildConfigurationList = C7987AA5286F331C001F057A /* Build configuration list for PBXNativeTarget "NetworkModel" */;
 			buildPhases = (
-				C7987A79286F31BD001F057A /* Sources */,
-				C7987A7A286F31BD001F057A /* Frameworks */,
-				C7987A7B286F31BD001F057A /* Resources */,
+				C7987A93286F331C001F057A /* Sources */,
+				C7987A94286F331C001F057A /* Frameworks */,
+				C7987A95286F331C001F057A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = NetworkStudyApp;
-			productName = NetworkStudyApp;
-			productReference = C7987A7D286F31BD001F057A /* NetworkStudyApp.app */;
+			name = NetworkModel;
+			productName = NetworkModel;
+			productReference = C7987A97286F331C001F057A /* NetworkModel.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C7987A75286F31BD001F057A /* Project object */ = {
+		C7987A8F286F331C001F057A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
-					C7987A7C286F31BD001F057A = {
+					C7987A96286F331C001F057A = {
 						CreatedOnToolsVersion = 13.3;
 					};
 				};
 			};
-			buildConfigurationList = C7987A78286F31BD001F057A /* Build configuration list for PBXProject "NetworkStudyApp" */;
+			buildConfigurationList = C7987A92286F331C001F057A /* Build configuration list for PBXProject "NetworkModel" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -110,42 +144,50 @@
 				en,
 				Base,
 			);
-			mainGroup = C7987A74286F31BD001F057A;
-			productRefGroup = C7987A7E286F31BD001F057A /* Products */;
+			mainGroup = C7987A8E286F331C001F057A;
+			productRefGroup = C7987A98286F331C001F057A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C7987A7C286F31BD001F057A /* NetworkStudyApp */,
+				C7987A96286F331C001F057A /* NetworkModel */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C7987A7B286F31BD001F057A /* Resources */ = {
+		C7987A95286F331C001F057A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7987A88286F31BE001F057A /* Preview Assets.xcassets in Resources */,
-				C7987A85286F31BE001F057A /* Assets.xcassets in Resources */,
+				C7987AA2286F331C001F057A /* Preview Assets.xcassets in Resources */,
+				C7987A9F286F331C001F057A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C7987A79286F31BD001F057A /* Sources */ = {
+		C7987A93286F331C001F057A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7987A83286F31BD001F057A /* ContentView.swift in Sources */,
-				C7987A81286F31BD001F057A /* NetworkStudyAppApp.swift in Sources */,
+				C7987AAF286F36EC001F057A /* RNMService.swift in Sources */,
+				C7987AB9286F381B001F057A /* RNMNetworkError.swift in Sources */,
+				C7987AB5286F3773001F057A /* Info.swift in Sources */,
+				C7987AB1286F3704001F057A /* RouteProtocol.swift in Sources */,
+				C7987AB3286F3767001F057A /* Character.swift in Sources */,
+				C7987A9D286F331C001F057A /* ContentView.swift in Sources */,
+				C7987AB7286F3782001F057A /* RNMNetworkManager.swift in Sources */,
+				C7987AAC286F3468001F057A /* Route.swift in Sources */,
+				C7987A9B286F331C001F057A /* NetworkModelApp.swift in Sources */,
+				C7987AA9286F340F001F057A /* CleanFishService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		C7987A89286F31BE001F057A /* Debug */ = {
+		C7987AA3286F331C001F057A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -205,7 +247,7 @@
 			};
 			name = Debug;
 		};
-		C7987A8A286F31BE001F057A /* Release */ = {
+		C7987AA4286F331C001F057A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -259,17 +301,18 @@
 			};
 			name = Release;
 		};
-		C7987A8C286F31BE001F057A /* Debug */ = {
+		C7987AA6286F331C001F057A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"NetworkStudyApp/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"NetworkModel/Preview Content\"";
 				DEVELOPMENT_TEAM = Z629PZ4XVL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NetworkModel/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -280,7 +323,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.moonjs.NetworkStudyApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.moonjs.NetworkModel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -288,17 +331,18 @@
 			};
 			name = Debug;
 		};
-		C7987A8D286F31BE001F057A /* Release */ = {
+		C7987AA7286F331C001F057A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"NetworkStudyApp/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"NetworkModel/Preview Content\"";
 				DEVELOPMENT_TEAM = Z629PZ4XVL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NetworkModel/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -309,7 +353,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.moonjs.NetworkStudyApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.moonjs.NetworkModel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -320,25 +364,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C7987A78286F31BD001F057A /* Build configuration list for PBXProject "NetworkStudyApp" */ = {
+		C7987A92286F331C001F057A /* Build configuration list for PBXProject "NetworkModel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C7987A89286F31BE001F057A /* Debug */,
-				C7987A8A286F31BE001F057A /* Release */,
+				C7987AA3286F331C001F057A /* Debug */,
+				C7987AA4286F331C001F057A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C7987A8B286F31BE001F057A /* Build configuration list for PBXNativeTarget "NetworkStudyApp" */ = {
+		C7987AA5286F331C001F057A /* Build configuration list for PBXNativeTarget "NetworkModel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C7987A8C286F31BE001F057A /* Debug */,
-				C7987A8D286F31BE001F057A /* Release */,
+				C7987AA6286F331C001F057A /* Debug */,
+				C7987AA7286F331C001F057A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = C7987A75286F31BD001F057A /* Project object */;
+	rootObject = C7987A8F286F331C001F057A /* Project object */;
 }
