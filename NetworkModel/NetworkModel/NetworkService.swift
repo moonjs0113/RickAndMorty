@@ -13,10 +13,18 @@ enum NetworkService {
 }
 
 extension NetworkService {
+    
+    
     enum CharacterRoute: Route {
         case allCharacter
         case id(Int)
         case base([Filters])
+        
+        enum ModelRoute: String {
+            case character
+            case location
+            case episode
+        }
         
         var stringValue: String {
             switch self {
@@ -44,7 +52,7 @@ extension NetworkService {
         
         static func getCharacterCount(completion: @escaping(Info?, NetworkError?) -> ()) {
             manager.sendRequest(route: Self.allCharacter,
-                                decodeTo: CharacterList.self) {
+                                decodeTo: ModelList<Character>.self) {
                 completion($0?.info, $1)
             }
         }

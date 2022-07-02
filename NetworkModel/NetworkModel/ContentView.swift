@@ -36,6 +36,7 @@ struct ContentView: View {
                             return
                         }
                         self.character = character
+                        print(self.character)
                     }
                 }
                 Picker("Character ID", selection: self.$id){
