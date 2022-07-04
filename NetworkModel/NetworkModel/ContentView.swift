@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var character: Character?
-    @State private var id: Int = 1
-    @State private var maxID: Int = 0
+    // MARK: Properties
+    @ObservedObject private var viewModel: CharacterViewModel = CharacterViewModel()
     
+    // MARK: Body
     var body: some View {
         VStack {
-            if let character = self.character {
+            if let character = self.viewModel.character {
+                AsyncImage(url: character.imageURL) { image in
+                    image
+                } placeholder: {
+                    ProgressView()
+                }
                 Text("\(character.id)")
                 Text("\(character.name)")
                 Text("\(character.status)")
@@ -23,22 +28,27 @@ struct ContentView: View {
                 Text("\(character.type)")
                 Text("\(character.gender)")
             }
+            
             Divider()
+            
             Button("Request Character Total Count") {
-                Task {
-                    let info = try await NetworkService.ModelRoute.requestTotalCount(to: Character.self)
-                    self.maxID = info.info.count
-                }
+                self.viewModel.requestTotalCount()
             }
             
-            Text("Total Count: \(maxID)")
-            
-            Button("Request Character ID: 1") {
-                Task {
-                    self.character = try await NetworkService.ModelRoute.requestObject(as: Character.self, id: 1)
+            Text("Total Count: \(self.viewModel.totalCount)")
+            if self.viewModel.totalCount > 0 {
+                Picker("Character ID", selection: self.$viewModel.id){
+                    ForEach(1...self.viewModel.totalCount, id: \.self) {
+                        Text("\($0)")
+                    }
                 }
+                .pickerStyle(.wheel)
             }
-            .disabled(self.maxID > 0)
+            
+            Button("Request Character ID: \(self.viewModel.id)") {
+                self.viewModel.requestInfo()
+            }
+            .disabled(self.viewModel.totalCount < 1)
         }
     }
 }

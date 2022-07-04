@@ -7,11 +7,8 @@
 
 import Foundation
 
-
-
 enum NetworkService {
     static let baseURL = "https://rickandmortyapi.com/api/"
-//    static let manager = NetworkManager(baseURL: baseURL)
     static let manager = NetworkActor(baseURL: baseURL)
 }
 
@@ -53,8 +50,7 @@ extension NetworkService {
             guard let route = self.convertToString(to: model) else {
                 throw NetworkError.invalidType
             }
-            
-            return try await manager.sendRequest(route: route, decodeTo: model)
+            return try await manager.sendRequest(route: route, id: id, decodeTo: model)
         }
     }
 }

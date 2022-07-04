@@ -23,4 +23,11 @@ struct Character: Codable {
     let url: String
     let episode: [String]
     let created: String
+    
+    var imageURL: URL {
+        guard let url = URL(string: self.image) else {
+            return URL(fileURLWithPath: "")
+        }
+        return url
+    }
 }
