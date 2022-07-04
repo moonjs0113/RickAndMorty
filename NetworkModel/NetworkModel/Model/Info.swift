@@ -8,7 +8,7 @@
 import Foundation
 
 struct ModelList<T: Codable>: Codable {
-    var info: Info?
+    var info: Info
     var results: [T]?
 }
 

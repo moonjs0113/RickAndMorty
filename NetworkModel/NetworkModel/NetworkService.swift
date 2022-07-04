@@ -7,101 +7,54 @@
 
 import Foundation
 
+
+
 enum NetworkService {
     static let baseURL = "https://rickandmortyapi.com/api/"
-    static let manager = NetworkManager(baseURL: baseURL)
+//    static let manager = NetworkManager(baseURL: baseURL)
+    static let manager = NetworkActor(baseURL: baseURL)
 }
 
 extension NetworkService {
-    
-    
-    enum CharacterRoute: Route {
-        case allCharacter
-        case id(Int)
-        case base([Filters])
-        
-        enum ModelRoute: String {
-            case character
-            case location
-            case episode
-        }
-        
+    enum ModelRoute: String, RouteProtocol {
         var stringValue: String {
-            switch self {
-            case .allCharacter:
-                return "character"
-            case .id(let id):
-                return "character/\(id)"
-            case .base(let characterFilters):
-                var stringValue = "character/" + (characterFilters.isEmpty ? "" : "?" + characterFilters.map { $0.getStringValue() + "&"}.joined())
-                stringValue.removeLast()
-                return stringValue
-            }
+            self.rawValue
         }
         
         var method: HTTPMethod {
-            switch self {
-            case .allCharacter:
-                return .GET
-            case .id:
-                return .GET
-            case .base:
-                return .GET
+            return .GET
+        }
+        
+        case character
+        case location
+        case episode
+        
+        static func convertToString<M: Codable>(to model: M.Type) -> ModelRoute? {
+            switch model {
+            case is Character.Type:
+                return .character
+            case is Location.Type:
+                return .location
+            case is Episode.Type:
+                return .episode
+            default:
+                return nil
             }
         }
         
-        static func getCharacterCount(completion: @escaping(Info?, NetworkError?) -> ()) {
-            manager.sendRequest(route: Self.allCharacter,
-                                decodeTo: ModelList<Character>.self) {
-                completion($0?.info, $1)
+        static func requestTotalCount<M: Codable>(to model: M.Type) async throws -> ModelList<M> {
+            guard let route = self.convertToString(to: model) else {
+                throw NetworkError.invalidType
             }
+            return try await manager.sendRequest(route: route, decodeTo: ModelList<M>.self)
         }
         
-        static func searchBy(id: Int, completion: @escaping(Character?, NetworkError?) -> ()) {
-            manager.sendRequest(route: Self.id(id),
-                                decodeTo: Character.self) {
-                completion($0, $1)
+        static func requestObject<M: Codable>(as model: M.Type, id: Int) async throws -> M {
+            guard let route = self.convertToString(to: model) else {
+                throw NetworkError.invalidType
             }
-        }
-
-        static func searchWith(filters: [Filters], completion: @escaping([Character]?, NetworkError?) -> ()) {
             
-            struct SearchWithFiltersResponse: Decodable {
-                let info: Info
-                let results: [Character]
-            }
-            
-            manager.sendRequest(route: Self.base(filters),
-                                decodeTo: SearchWithFiltersResponse.self) {
-                completion($0?.results, $1)
-                
-            }
-        }
-    }
-    
-    enum Filters {
-        case name(String)
-        case status(String)
-        case species(String)
-        case type(String)
-        case gender(String)
-        case page(Int)
-        
-        func getStringValue() -> String {
-            switch self {
-            case .name(let name):
-                return "name=" + name
-            case .status(let status):
-                return "status=" + status
-            case .species(let species):
-                return "species=" + species
-            case .type(let type):
-                return "type=" + type
-            case .gender(let gender):
-                return "gender=" + gender
-            case .page(let page):
-                return "page=" + "\(page)"
-            }
+            return try await manager.sendRequest(route: route, decodeTo: model)
         }
     }
 }

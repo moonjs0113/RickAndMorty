@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Route {
+protocol RouteProtocol {
     var stringValue: String { get }
     var method: HTTPMethod { get }
 }
