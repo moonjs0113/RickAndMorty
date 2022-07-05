@@ -9,24 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     // MARK: Properties
-    @ObservedObject private var viewModel: CharacterViewModel = CharacterViewModel()
+    @ObservedObject private var viewModel: ViewModel = ViewModel<Character>()
     
     // MARK: Body
     var body: some View {
         VStack {
-            if let character = self.viewModel.character {
-                AsyncImage(url: character.imageURL) { image in
-                    image
-                } placeholder: {
-                    ProgressView()
-                }
-                Text("\(character.id)")
-                Text("\(character.name)")
-                Text("\(character.status)")
-                Text("\(character.url)")
-                Text("\(character.species)")
-                Text("\(character.type)")
-                Text("\(character.gender)")
+            if let model = self.viewModel.model {
+                Text("\(model.id)")
+                Text("\(model.name)")
             }
             
             Divider()

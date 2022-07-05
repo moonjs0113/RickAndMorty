@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C77558C6286F425800B99CF7 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77558C5286F425800B99CF7 /* HTTPMethod.swift */; };
-		C782A26D2872CD21000779E4 /* EpisodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C782A26C2872CD21000779E4 /* EpisodeViewModel.swift */; };
-		C782A26F2872CD6C000779E4 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C782A26E2872CD6C000779E4 /* LocationViewModel.swift */; };
 		C782A2712872CDAF000779E4 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C782A2702872CDAF000779E4 /* ViewModelProtocol.swift */; };
 		C7927FD02870A987007E661C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7927FCF2870A987007E661C /* Location.swift */; };
 		C7927FD22870A9EE007E661C /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7927FD12870A9EE007E661C /* Episode.swift */; };
@@ -23,13 +21,11 @@
 		C7987AB5286F3773001F057A /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987AB4286F3773001F057A /* Info.swift */; };
 		C7987AB7286F3782001F057A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987AB6286F3782001F057A /* NetworkManager.swift */; };
 		C7987AB9286F381B001F057A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987AB8286F381B001F057A /* NetworkError.swift */; };
-		C7F798782872CBC5003C58E3 /* CharacterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F798772872CBC5003C58E3 /* CharacterViewModel.swift */; };
+		C7F798782872CBC5003C58E3 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F798772872CBC5003C58E3 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C77558C5286F425800B99CF7 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
-		C782A26C2872CD21000779E4 /* EpisodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeViewModel.swift; sourceTree = "<group>"; };
-		C782A26E2872CD6C000779E4 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		C782A2702872CDAF000779E4 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
 		C7927FCF2870A987007E661C /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		C7927FD12870A9EE007E661C /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
@@ -45,7 +41,7 @@
 		C7987AB4286F3773001F057A /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		C7987AB6286F3782001F057A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C7987AB8286F381B001F057A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
-		C7F798772872CBC5003C58E3 /* CharacterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewModel.swift; sourceTree = "<group>"; };
+		C7F798772872CBC5003C58E3 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,9 +129,7 @@
 		C7F798762872CBB8003C58E3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				C7F798772872CBC5003C58E3 /* CharacterViewModel.swift */,
-				C782A26E2872CD6C000779E4 /* LocationViewModel.swift */,
-				C782A26C2872CD21000779E4 /* EpisodeViewModel.swift */,
+				C7F798772872CBC5003C58E3 /* ViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -214,15 +208,13 @@
 				C7987AB9286F381B001F057A /* NetworkError.swift in Sources */,
 				C7927FD02870A987007E661C /* Location.swift in Sources */,
 				C7987AB5286F3773001F057A /* Info.swift in Sources */,
-				C7F798782872CBC5003C58E3 /* CharacterViewModel.swift in Sources */,
+				C7F798782872CBC5003C58E3 /* ViewModel.swift in Sources */,
 				C7987AB1286F3704001F057A /* RouteProtocol.swift in Sources */,
 				C7927FD22870A9EE007E661C /* Episode.swift in Sources */,
-				C782A26D2872CD21000779E4 /* EpisodeViewModel.swift in Sources */,
 				C7987AB3286F3767001F057A /* Character.swift in Sources */,
 				C77558C6286F425800B99CF7 /* HTTPMethod.swift in Sources */,
 				C7987A9D286F331C001F057A /* ContentView.swift in Sources */,
 				C782A2712872CDAF000779E4 /* ViewModelProtocol.swift in Sources */,
-				C782A26F2872CD6C000779E4 /* LocationViewModel.swift in Sources */,
 				C7987AB7286F3782001F057A /* NetworkManager.swift in Sources */,
 				C7987A9B286F331C001F057A /* NetworkModelApp.swift in Sources */,
 			);
@@ -281,7 +273,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -335,7 +327,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

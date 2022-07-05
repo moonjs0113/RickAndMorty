@@ -7,7 +7,7 @@
 
 import Foundation
 
-final actor NetworkActor {
+final class NetworkManager {
     let baseURL: String
     private var session = URLSession(configuration: URLSessionConfiguration.default,
                                      delegate: nil,
@@ -30,21 +30,33 @@ final actor NetworkActor {
     }
 }
 
-extension NetworkActor {
-    func sendRequest<D: Codable>(route: NetworkService.ModelRoute, id: Int = 0, decodeTo: D.Type) async throws -> D {
+extension NetworkManager {
+    func sendRequest<D: Codable>(route: NetworkService.ModelRoute, id: Int = 0, decodeTo: D.Type, completeHandler: @escaping NetworkClosure<D>) {
         var urlString = self.baseURL + route.stringValue
         if id > 0 {
             urlString += "/\(id)"
         }
         
         guard let url = URL(string: urlString) else {
-            throw NetworkError.invalidURL
+            return completeHandler(nil, NetworkError.invalidURL)
         }
         
         let request = self.request(url, route)
-        
-        let (data, _) = try await self.session.data(for: request)
-        let result = try JSONDecoder().decode(D.self, from: data)
-        return result
+        self.session.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                completeHandler(nil, .nilResponse)
+                return
+            }
+            
+            print(response)
+            
+            guard let result = try? JSONDecoder().decode(D.self, from: data) else {
+                completeHandler(nil, .errorDecodingJson)
+                return
+            }
+            
+            completeHandler(result, nil)
+        }
+        .resume()
     }
 }

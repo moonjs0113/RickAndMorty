@@ -7,9 +7,11 @@
 
 import Foundation
 
+typealias NetworkClosure<D: Codable> = (D?, NetworkError?) -> Void
+
 enum NetworkService {
     static let baseURL = "https://rickandmortyapi.com/api/"
-    static let manager = NetworkActor(baseURL: baseURL)
+    static let manager = NetworkManager(baseURL: baseURL)
 }
 
 extension NetworkService {
@@ -39,18 +41,27 @@ extension NetworkService {
             }
         }
         
-        static func requestTotalCount<M: Codable>(to model: M.Type) async throws -> ModelList<M> {
+        static func requestTotalCount<M: Codable>(to model: M.Type, completeHandler: @escaping NetworkClosure<ModelList<M>>) {
             guard let route = self.convertToString(to: model) else {
-                throw NetworkError.invalidType
+                completeHandler(nil, NetworkError.invalidType)
+                return
             }
-            return try await manager.sendRequest(route: route, decodeTo: ModelList<M>.self)
+            
+            manager.sendRequest(route: route, decodeTo: ModelList<M>.self) { info, error in
+                completeHandler(info, error)
+            }
+            
         }
         
-        static func requestObject<M: Codable>(as model: M.Type, id: Int) async throws -> M {
+        static func requestObject<M: Codable>(as model: M.Type, id: Int, completeHandler: @escaping NetworkClosure<M>) {
             guard let route = self.convertToString(to: model) else {
-                throw NetworkError.invalidType
+                completeHandler(nil, NetworkError.invalidType)
+                return
             }
-            return try await manager.sendRequest(route: route, id: id, decodeTo: model)
+            
+            manager.sendRequest(route: route, decodeTo: model.self) { result, error in
+                completeHandler(result, error)
+            }
         }
     }
 }
