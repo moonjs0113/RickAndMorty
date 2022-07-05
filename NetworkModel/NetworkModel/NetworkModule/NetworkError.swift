@@ -8,6 +8,7 @@
 import Foundation
 
 enum NetworkError: Error {
+    case invalidType
     case invalidURL
     case nilResponse
     case managerIsNil

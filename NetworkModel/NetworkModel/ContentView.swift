@@ -8,13 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var character: Character?
-    @State private var id: Int = 1
-    @State private var maxID: Int = 0
+    // MARK: Properties
+    @ObservedObject private var viewModel: CharacterViewModel = CharacterViewModel()
     
+    // MARK: Body
     var body: some View {
         VStack {
-            if let character = self.character {
+            if let character = self.viewModel.character {
+                AsyncImage(url: character.imageURL) { image in
+                    image
+                } placeholder: {
+                    ProgressView()
+                }
                 Text("\(character.id)")
                 Text("\(character.name)")
                 Text("\(character.status)")
@@ -23,49 +28,28 @@ struct ContentView: View {
                 Text("\(character.type)")
                 Text("\(character.gender)")
             }
+            
             Divider()
-            if maxID > 0 {
-                Button("Get Info") {
-                    NetworkService.CharacterRoute.searchBy(id: self.id) { character, error in
-                        if let error = error {
-                            debugPrint(error)
-                            return
-                        }
-                        
-                        guard let character = character else {
-                            return
-                        }
-                        self.character = character
-                    }
-                }
-                Picker("Character ID", selection: self.$id){
-                    ForEach(1...self.maxID, id: \.self) {
+            
+            Button("Request Character Total Count") {
+                self.viewModel.requestTotalCount()
+            }
+            
+            Text("Total Count: \(self.viewModel.totalCount)")
+            if self.viewModel.totalCount > 0 {
+                Picker("Character ID", selection: self.$viewModel.id){
+                    ForEach(1...self.viewModel.totalCount, id: \.self) {
                         Text("\($0)")
                     }
                 }
                 .pickerStyle(.wheel)
-            } else {
-                Text("load Data...")
-                ProgressView("")
-                    .progressViewStyle(.circular)
-                    .onAppear {
-                        NetworkService.CharacterRoute.getCharacterCount {
-                            info, error in
-                            if let error = error {
-                                debugPrint(error)
-                                return
-                            }
-                            
-                            guard let info = info else {
-                                return
-                            }
-                            self.maxID = info.count
-                        }
-                    }
             }
             
+            Button("Request Character ID: \(self.viewModel.id)") {
+                self.viewModel.requestInfo()
+            }
+            .disabled(self.viewModel.totalCount < 1)
         }
-        
     }
 }
 

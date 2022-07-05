@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct CharacterList: Codable {
-    var info: Info?
-    var results: [Character]?
+struct ModelList<T: Codable>: Codable {
+    var info: Info
+    var results: [T]?
 }
 
 struct Info: Codable {
