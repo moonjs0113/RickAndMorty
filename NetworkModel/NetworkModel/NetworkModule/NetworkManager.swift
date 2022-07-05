@@ -48,8 +48,6 @@ extension NetworkManager {
                 return
             }
             
-            print(response)
-            
             guard let result = try? JSONDecoder().decode(D.self, from: data) else {
                 completeHandler(nil, .errorDecodingJson)
                 return

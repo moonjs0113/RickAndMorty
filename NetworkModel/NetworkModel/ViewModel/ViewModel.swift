@@ -13,7 +13,7 @@ final class ViewModel<M: Codable>: ObservableObject, ViewModelProtocol {
     @Published var totalCount: Int = 0
     
     func requestTotalCount() {
-        DispatchQueue.main.async { [weak self] in
+        DispatchQueue.global().async { [weak self] in
             NetworkService.ModelRoute.requestTotalCount(to: M.self) { info, error in
                 guard let info = info, error == nil else {
                     if let error = error {
@@ -21,14 +21,16 @@ final class ViewModel<M: Codable>: ObservableObject, ViewModelProtocol {
                     }
                     return
                 }
-                self?.totalCount = info.info.count
-                self?.id = 1
+                DispatchQueue.main.async {
+                    self?.totalCount = info.info.count
+                    self?.id = 1
+                }
             }
         }
     }
     
     func requestInfo() {
-        DispatchQueue.main.async { [weak self] in
+        DispatchQueue.global().async { [weak self] in
             NetworkService.ModelRoute.requestObject(as: M.self, id: self?.id ?? 0) { model, error in
                 guard let model = model, error == nil else {
                     if let error = error {
@@ -36,7 +38,9 @@ final class ViewModel<M: Codable>: ObservableObject, ViewModelProtocol {
                     }
                     return
                 }
-                self?.model = model
+                DispatchQueue.main.async {
+                    self?.model = model
+                }
             }
         }
     }

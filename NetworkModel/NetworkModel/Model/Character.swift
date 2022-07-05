@@ -14,10 +14,10 @@ struct Character: Codable {
 //    let species: String
 //    let type: String
 //    let gender: String
-//
+
 //    let origin: Location
 //    let location: Location
-//
+
 //    let image: String
 //
 //    let url: String

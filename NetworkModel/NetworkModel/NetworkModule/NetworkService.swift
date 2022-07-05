@@ -59,7 +59,7 @@ extension NetworkService {
                 return
             }
             
-            manager.sendRequest(route: route, decodeTo: model.self) { result, error in
+            manager.sendRequest(route: route, id: id, decodeTo: model.self) { result, error in
                 completeHandler(result, error)
             }
         }
