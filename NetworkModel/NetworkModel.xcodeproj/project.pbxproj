@@ -21,6 +21,8 @@
 		C7987AB5286F3773001F057A /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987AB4286F3773001F057A /* Info.swift */; };
 		C7987AB7286F3782001F057A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987AB6286F3782001F057A /* NetworkManager.swift */; };
 		C7987AB9286F381B001F057A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987AB8286F381B001F057A /* NetworkError.swift */; };
+		C79C31352882ACCF00B6CBB2 /* FilterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79C31342882ACCF00B6CBB2 /* FilterProtocol.swift */; };
+		C79C31372882AFF700B6CBB2 /* ModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C79C31362882AFF700B6CBB2 /* ModelProtocol.swift */; };
 		C7F798782872CBC5003C58E3 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F798772872CBC5003C58E3 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +43,8 @@
 		C7987AB4286F3773001F057A /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		C7987AB6286F3782001F057A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C7987AB8286F381B001F057A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		C79C31342882ACCF00B6CBB2 /* FilterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterProtocol.swift; sourceTree = "<group>"; };
+		C79C31362882AFF700B6CBB2 /* ModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelProtocol.swift; sourceTree = "<group>"; };
 		C7F798772872CBC5003C58E3 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,7 +73,9 @@
 		C782A2722872CE15000779E4 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				C79C31362882AFF700B6CBB2 /* ModelProtocol.swift */,
 				C7987AB0286F3704001F057A /* RouteProtocol.swift */,
+				C79C31342882ACCF00B6CBB2 /* FilterProtocol.swift */,
 				C782A2702872CDAF000779E4 /* ViewModelProtocol.swift */,
 			);
 			path = Protocol;
@@ -211,6 +217,8 @@
 				C7F798782872CBC5003C58E3 /* ViewModel.swift in Sources */,
 				C7987AB1286F3704001F057A /* RouteProtocol.swift in Sources */,
 				C7927FD22870A9EE007E661C /* Episode.swift in Sources */,
+				C79C31372882AFF700B6CBB2 /* ModelProtocol.swift in Sources */,
+				C79C31352882ACCF00B6CBB2 /* FilterProtocol.swift in Sources */,
 				C7987AB3286F3767001F057A /* Character.swift in Sources */,
 				C77558C6286F425800B99CF7 /* HTTPMethod.swift in Sources */,
 				C7987A9D286F331C001F057A /* ContentView.swift in Sources */,

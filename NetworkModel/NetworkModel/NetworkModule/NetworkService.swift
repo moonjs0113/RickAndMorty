@@ -40,28 +40,52 @@ extension NetworkService {
                 return nil
             }
         }
-        
-        static func requestTotalCount<M: Codable>(to model: M.Type, completeHandler: @escaping NetworkClosure<ModelList<M>>) {
-            guard let route = self.convertToString(to: model) else {
-                completeHandler(nil, NetworkError.invalidType)
-                return
-            }
-            
-            manager.sendRequest(route: route, decodeTo: ModelList<M>.self) { info, error in
-                completeHandler(info, error)
-            }
-            
+    }
+    
+    static func requestTotalObject<M: Codable>(as model: M.Type, completeHandler: @escaping NetworkClosure<ModelList<M>>) {
+        guard let route = ModelRoute.convertToString(to: model) else {
+            completeHandler(nil, NetworkError.invalidType)
+            return
         }
         
-        static func requestObject<M: Codable>(as model: M.Type, id: Int, completeHandler: @escaping NetworkClosure<M>) {
-            guard let route = self.convertToString(to: model) else {
-                completeHandler(nil, NetworkError.invalidType)
-                return
-            }
-            
-            manager.sendRequest(route: route, id: id, decodeTo: model.self) { result, error in
-                completeHandler(result, error)
-            }
+        manager.sendRequest(route: route, decodeTo: ModelList<M>.self) { info, error in
+            completeHandler(info, error)
+        }
+        
+    }
+    
+    static func requestObject<M: Codable, F: FilterProtocol>(as model: M.Type, filterBy filter: [F] = [], completeHandler: @escaping NetworkClosure<ModelList<M>>) {
+        guard let route = ModelRoute.convertToString(to: model) else {
+            completeHandler(nil, NetworkError.invalidType)
+            return
+        }
+        
+        manager.sendRequest(route: route, filterBy: filter, decodeTo: ModelList<M>.self) { info, error in
+            completeHandler(info, error)
         }
     }
+    
+    // Single or Multile Object(s)
+    static func requestSingleObject<M: Codable>(as model: M.Type, id: Int, completeHandler: @escaping NetworkClosure<M>) {
+        guard let route = ModelRoute.convertToString(to: model) else {
+            completeHandler(nil, NetworkError.invalidType)
+            return
+        }
+        
+        manager.sendRequest(route: route, ids: [id], decodeTo: model.self) { result, error in
+            completeHandler(result, error)
+        }
+    }
+    
+    static func requestMultipleObjects<M: Codable>(as model: M.Type, id: [Int], completeHandler: @escaping NetworkClosure<[M]>) {
+        guard let route = ModelRoute.convertToString(to: model) else {
+            completeHandler(nil, NetworkError.invalidType)
+            return
+        }
+        
+        manager.sendRequest(route: route, ids: id, decodeTo: [M].self) { result, error in
+            completeHandler(result, error)
+        }
+    }
+    
 }

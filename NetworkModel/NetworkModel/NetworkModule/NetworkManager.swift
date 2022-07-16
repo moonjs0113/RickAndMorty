@@ -31,17 +31,59 @@ final class NetworkManager {
 }
 
 extension NetworkManager {
-    func sendRequest<D: Codable>(route: NetworkService.ModelRoute, id: Int = 0, decodeTo: D.Type, completeHandler: @escaping NetworkClosure<D>) {
-        var urlString = self.baseURL + route.stringValue
-        if id > 0 {
-            urlString += "/\(id)"
+    func multipleObjectRouteValue(ids: [Int]) -> String {
+        var result = ""
+        if ids.count > 0 {
+            result += "/"
+            for id in ids {
+                result += "\(id),"
+            }
+            _ = result.popLast()
         }
+        return result
+    }
+    
+    func sendRequest<D: Codable>(route: NetworkService.ModelRoute, ids: [Int] = [], decodeTo: D.Type, completeHandler: @escaping NetworkClosure<D>) {
+        var urlString = self.baseURL + route.stringValue
+        urlString += multipleObjectRouteValue(ids: ids)
         
         guard let url = URL(string: urlString) else {
             return completeHandler(nil, NetworkError.invalidURL)
         }
         
         let request = self.request(url, route)
+        self.session.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                completeHandler(nil, .nilResponse)
+                return
+            }
+            guard let result = try? JSONDecoder().decode(D.self, from: data) else {
+                completeHandler(nil, .errorDecodingJson)
+                return
+            }
+            
+            completeHandler(result, nil)
+        }
+        .resume()
+    }
+    
+    func sendRequest<D: Codable, F: FilterProtocol>(route: NetworkService.ModelRoute, filterBy filters: [F] = [], decodeTo: D.Type, completeHandler: @escaping NetworkClosure<D>) {
+        let urlString = self.baseURL + route.stringValue
+        
+        guard let url = URL(string: urlString) else {
+            return completeHandler(nil, NetworkError.invalidURL)
+        }
+        
+        var request = self.request(url, route)
+        
+        if !filters.isEmpty {
+            guard let jsonData = try? JSONEncoder().encode(filters) else {
+                completeHandler(nil, .errorEncodingJson)
+                return
+            }
+            request.httpBody = jsonData
+        }
+        
         self.session.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
                 completeHandler(nil, .nilResponse)

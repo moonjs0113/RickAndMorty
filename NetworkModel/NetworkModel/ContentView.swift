@@ -37,6 +37,7 @@ struct ContentView: View {
             
             Button("Request Character ID: \(self.viewModel.id)") {
                 self.viewModel.requestInfo()
+                self.viewModel.requestFilterInfo(filter: [.name("rick")])
             }
             .disabled(self.viewModel.totalCount < 1)
         }
