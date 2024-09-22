@@ -42,16 +42,20 @@ extension NetworkService {
         }
     }
     
-    static func requestTotalObject<M: Codable>(as model: M.Type, completeHandler: @escaping NetworkClosure<ModelList<M>>) {
+    static func requestTotalObject<M: Codable>(as model: M.Type, pageURL: String?, completeHandler: @escaping NetworkClosure<ModelList<M>>) {
         guard let route = ModelRoute.convertToString(to: model) else {
             completeHandler(nil, NetworkError.invalidType)
             return
         }
-        
-        manager.sendRequest(route: route, decodeTo: ModelList<M>.self) { info, error in
+        guard let pageURL = pageURL else {
+            manager.sendRequest(route: route, decodeTo: ModelList<M>.self) { info, error in
+                completeHandler(info, error)
+            }
+            return
+        }
+        manager.sendRequest(urlString: pageURL, decodeTo: ModelList<M>.self) { info, error in
             completeHandler(info, error)
         }
-        
     }
     
     static func requestObject<M: Codable, F: FilterProtocol>(as model: M.Type, filterBy filter: [F] = [], completeHandler: @escaping NetworkClosure<ModelList<M>>) {
@@ -88,4 +92,7 @@ extension NetworkService {
         }
     }
     
+    static func requestImageData(from urlString: String, completeHandler: @escaping (Data?, NetworkError?) -> Void) {
+        manager.sendRequest(urlString: urlString, completeHandler: completeHandler)
+    }
 }

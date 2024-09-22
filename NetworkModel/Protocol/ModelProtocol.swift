@@ -7,6 +7,8 @@
 
 import Foundation
 
+typealias ModelProtocol = Codable & Model & Identifiable
+
 protocol Model {
     associatedtype FilterType where FilterType: FilterProtocol
     var id: Int { get }

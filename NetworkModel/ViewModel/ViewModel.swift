@@ -7,31 +7,39 @@
 
 import Foundation
 
-final class ViewModel<M: Codable & Model>: ObservableObject, ViewModelProtocol {
+final class ViewModel<M: ModelProtocol>: ObservableObject, ViewModelProtocol {
     @Published var model: M?
-    @Published var id: Int = 0
+    @Published var idText: String = ""
     @Published var totalCount: Int = 0
+    
+    var models: [M] = []
+    var nextURLString: String?
     
     func requestTotalCount() {
         DispatchQueue.global().async { [weak self] in
-            NetworkService.requestTotalObject(as: M.self) { info, error in
+            guard let self = self else { return }
+            NetworkService.requestTotalObject(as: M.self, pageURL: self.nextURLString) { info, error in
                 guard let info = info, error == nil else {
                     if let error = error {
                         debugPrint(error)
                     }
                     return
                 }
-                DispatchQueue.main.async {
-                    self?.totalCount = info.info.count
-                    self?.id = 1
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.totalCount = info.info.count
+                    self.nextURLString = info.info.next
+                    if let data = info.results {
+                        self.models.append(contentsOf: data)
+                    }
                 }
             }
         }
     }
     
-    func requestInfo() {
+    func requestInfo(ID: Int) {
         DispatchQueue.global().async { [weak self] in
-            NetworkService.requestSingleObject(as: M.self, id: self?.id ?? 0) { model, error in
+            NetworkService.requestSingleObject(as: M.self, id: ID) { model, error in
                 guard let model = model, error == nil else {
                     if let error = error {
                         debugPrint(error)

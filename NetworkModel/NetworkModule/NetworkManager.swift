@@ -13,9 +13,9 @@ final class NetworkManager {
                                      delegate: nil,
                                      delegateQueue: nil)
     
-    private let request: (URL, NetworkService.ModelRoute) -> URLRequest =  { url, route in
+    private let request: (URL) -> URLRequest =  { url in
         var request = URLRequest(url: url)
-        request.httpMethod = route.method.rawValue
+        request.httpMethod = HTTPMethod.GET.rawValue
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         return request
@@ -43,28 +43,44 @@ extension NetworkManager {
         return result
     }
     
-    func sendRequest<D: Codable>(route: NetworkService.ModelRoute, ids: [Int] = [], decodeTo: D.Type, completeHandler: @escaping NetworkClosure<D>) {
-        var urlString = self.baseURL + route.stringValue
-        urlString += multipleObjectRouteValue(ids: ids)
-        
+    func sendRequest(urlString: String, completeHandler: @escaping (Data?, NetworkError?) -> Void) {
         guard let url = URL(string: urlString) else {
             return completeHandler(nil, NetworkError.invalidURL)
         }
         
-        let request = self.request(url, route)
+        let request = request(url)
         self.session.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {
                 completeHandler(nil, .nilResponse)
                 return
             }
-            guard let result = try? JSONDecoder().decode(D.self, from: data) else {
+            completeHandler(data, nil)
+        }
+        .resume()
+    }
+    
+    func sendRequest<D: Codable>(urlString: String, decodeTo: D.Type, completeHandler: @escaping NetworkClosure<D>) {
+        sendRequest(urlString: urlString) { (data, error) in
+            if let error = error { completeHandler(nil, error) }
+            guard let data = data, let result = try? JSONDecoder().decode(D.self, from: data) else {
                 completeHandler(nil, .errorDecodingJson)
                 return
             }
-            
             completeHandler(result, nil)
         }
-        .resume()
+    }
+    
+    func sendRequest<D: Codable>(route: NetworkService.ModelRoute, ids: [Int] = [], decodeTo: D.Type, completeHandler: @escaping NetworkClosure<D>) {
+        let urlString = self.baseURL + route.stringValue + multipleObjectRouteValue(ids: ids)
+        
+        sendRequest(urlString: urlString) { (data, error) in
+            if let error = error { completeHandler(nil, error) }
+            guard let data = data, let result = try? JSONDecoder().decode(D.self, from: data) else {
+                completeHandler(nil, .errorDecodingJson)
+                return
+            }
+            completeHandler(result, nil)
+        }
     }
     
     func sendRequest<D: Codable, F: FilterProtocol>(route: NetworkService.ModelRoute, filterBy filters: [F] = [], decodeTo: D.Type, completeHandler: @escaping NetworkClosure<D>) {
@@ -74,7 +90,7 @@ extension NetworkManager {
             return completeHandler(nil, NetworkError.invalidURL)
         }
         
-        var request = self.request(url, route)
+        var request = request(url)
         
         if !filters.isEmpty {
             guard let jsonData = try? JSONEncoder().encode(filters) else {

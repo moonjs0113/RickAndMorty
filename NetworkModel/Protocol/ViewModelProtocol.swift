@@ -9,5 +9,5 @@ import Foundation
 
 protocol ViewModelProtocol {
     func requestTotalCount() -> ()
-    func requestInfo() -> ()
+    func requestInfo(ID: Int) -> ()
 }
