@@ -14,8 +14,10 @@ final class ViewModel<M: ModelProtocol>: ObservableObject, ViewModelProtocol {
     
     var models: [M] = []
     var nextURLString: String?
+    var isLoading: Bool = false
     
     func requestTotalCount() {
+        isLoading = true
         DispatchQueue.global().async { [weak self] in
             guard let self = self else { return }
             NetworkService.requestTotalObject(as: M.self, pageURL: self.nextURLString) { info, error in
@@ -23,6 +25,7 @@ final class ViewModel<M: ModelProtocol>: ObservableObject, ViewModelProtocol {
                     if let error = error {
                         debugPrint(error)
                     }
+                    self.isLoading = false
                     return
                 }
                 DispatchQueue.main.async { [weak self] in
@@ -32,6 +35,7 @@ final class ViewModel<M: ModelProtocol>: ObservableObject, ViewModelProtocol {
                     if let data = info.results {
                         self.models.append(contentsOf: data)
                     }
+                    self.isLoading = false
                 }
             }
         }

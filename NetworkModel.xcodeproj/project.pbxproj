@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		C77014AA2CA0471F007BA4E3 /* CharacterCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77014A92CA0471F007BA4E3 /* CharacterCardView.swift */; };
+		C77014AC2CA133B4007BA4E3 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C77014AB2CA133B4007BA4E3 /* Color.xcassets */; };
+		C77014AE2CA1368D007BA4E3 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77014AD2CA1368D007BA4E3 /* Color+Extension.swift */; };
+		C77014B02CA13ACE007BA4E3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77014AF2CA13ACE007BA4E3 /* HomeViewModel.swift */; };
+		C77014B32CA14009007BA4E3 /* DataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77014B22CA14009007BA4E3 /* DataType.swift */; };
 		C77558C6286F425800B99CF7 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77558C5286F425800B99CF7 /* HTTPMethod.swift */; };
 		C782A2712872CDAF000779E4 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C782A2702872CDAF000779E4 /* ViewModelProtocol.swift */; };
 		C7927FD02870A987007E661C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7927FCF2870A987007E661C /* Location.swift */; };
 		C7927FD22870A9EE007E661C /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7927FD12870A9EE007E661C /* Episode.swift */; };
 		C7987A9B286F331C001F057A /* NetworkModelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987A9A286F331C001F057A /* NetworkModelApp.swift */; };
-		C7987A9D286F331C001F057A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987A9C286F331C001F057A /* ContentView.swift */; };
+		C7987A9D286F331C001F057A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987A9C286F331C001F057A /* HomeView.swift */; };
 		C7987A9F286F331C001F057A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7987A9E286F331C001F057A /* Assets.xcassets */; };
 		C7987AA2286F331C001F057A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7987AA1286F331C001F057A /* Preview Assets.xcassets */; };
 		C7987AAF286F36EC001F057A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7987AAE286F36EC001F057A /* NetworkService.swift */; };
@@ -29,13 +33,17 @@
 
 /* Begin PBXFileReference section */
 		C77014A92CA0471F007BA4E3 /* CharacterCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCardView.swift; sourceTree = "<group>"; };
+		C77014AB2CA133B4007BA4E3 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		C77014AD2CA1368D007BA4E3 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		C77014AF2CA13ACE007BA4E3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		C77014B22CA14009007BA4E3 /* DataType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataType.swift; sourceTree = "<group>"; };
 		C77558C5286F425800B99CF7 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		C782A2702872CDAF000779E4 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
 		C7927FCF2870A987007E661C /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		C7927FD12870A9EE007E661C /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		C7987A97286F331C001F057A /* NetworkModel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkModel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7987A9A286F331C001F057A /* NetworkModelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModelApp.swift; sourceTree = "<group>"; };
-		C7987A9C286F331C001F057A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C7987A9C286F331C001F057A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C7987A9E286F331C001F057A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7987AA1286F331C001F057A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C7987AAA286F343F001F057A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -64,15 +72,33 @@
 		C77014A82CA0470E007BA4E3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C7987A9C286F331C001F057A /* ContentView.swift */,
+				C77014B12CA13FBB007BA4E3 /* Home */,
 				C77014A92CA0471F007BA4E3 /* CharacterCardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
+		C77014B12CA13FBB007BA4E3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C7987A9C286F331C001F057A /* HomeView.swift */,
+				C77014AF2CA13ACE007BA4E3 /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C77014B62CA14074007BA4E3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C77014AD2CA1368D007BA4E3 /* Color+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		C77558C4286F41F700B99CF7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C77014B22CA14009007BA4E3 /* DataType.swift */,
 				C7987AB2286F3767001F057A /* Character.swift */,
 				C7927FCF2870A987007E661C /* Location.swift */,
 				C7927FD12870A9EE007E661C /* Episode.swift */,
@@ -124,12 +150,14 @@
 			children = (
 				C7987AAA286F343F001F057A /* Info.plist */,
 				C7987A9A286F331C001F057A /* NetworkModelApp.swift */,
+				C77014B62CA14074007BA4E3 /* Extension */,
 				C77014A82CA0470E007BA4E3 /* View */,
 				C782A2722872CE15000779E4 /* Protocol */,
 				C7F798762872CBB8003C58E3 /* ViewModel */,
 				C77558C4286F41F700B99CF7 /* Model */,
 				C7927FD32870C10A007E661C /* NetworkModule */,
 				C7987A9E286F331C001F057A /* Assets.xcassets */,
+				C77014AB2CA133B4007BA4E3 /* Color.xcassets */,
 				C7987AA0286F331C001F057A /* Preview Content */,
 			);
 			path = NetworkModel;
@@ -211,6 +239,7 @@
 			files = (
 				C7987AA2286F331C001F057A /* Preview Assets.xcassets in Resources */,
 				C7987A9F286F331C001F057A /* Assets.xcassets in Resources */,
+				C77014AC2CA133B4007BA4E3 /* Color.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,19 +251,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7987AAF286F36EC001F057A /* NetworkService.swift in Sources */,
+				C77014B02CA13ACE007BA4E3 /* HomeViewModel.swift in Sources */,
 				C7987AB9286F381B001F057A /* NetworkError.swift in Sources */,
 				C7927FD02870A987007E661C /* Location.swift in Sources */,
 				C7987AB5286F3773001F057A /* Info.swift in Sources */,
 				C77014AA2CA0471F007BA4E3 /* CharacterCardView.swift in Sources */,
 				C7F798782872CBC5003C58E3 /* ViewModel.swift in Sources */,
+				C77014B32CA14009007BA4E3 /* DataType.swift in Sources */,
 				C7987AB1286F3704001F057A /* RouteProtocol.swift in Sources */,
 				C7927FD22870A9EE007E661C /* Episode.swift in Sources */,
 				C79C31372882AFF700B6CBB2 /* ModelProtocol.swift in Sources */,
 				C79C31352882ACCF00B6CBB2 /* FilterProtocol.swift in Sources */,
 				C7987AB3286F3767001F057A /* Character.swift in Sources */,
 				C77558C6286F425800B99CF7 /* HTTPMethod.swift in Sources */,
-				C7987A9D286F331C001F057A /* ContentView.swift in Sources */,
+				C7987A9D286F331C001F057A /* HomeView.swift in Sources */,
 				C782A2712872CDAF000779E4 /* ViewModelProtocol.swift in Sources */,
+				C77014AE2CA1368D007BA4E3 /* Color+Extension.swift in Sources */,
 				C7987AB7286F3782001F057A /* NetworkManager.swift in Sources */,
 				C7987A9B286F331C001F057A /* NetworkModelApp.swift in Sources */,
 			);
