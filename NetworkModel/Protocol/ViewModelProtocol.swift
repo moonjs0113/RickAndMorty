@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ViewModel {
+protocol ViewModelProtocol {
     func requestTotalCount() -> ()
-    func requestInfo() -> ()
+    func requestInfo(ID: Int) -> ()
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ModelList<T: Codable>: Codable {
+struct ModelList<T: ModelProtocol>: Codable {
     var info: Info
     var results: [T]?
 }
