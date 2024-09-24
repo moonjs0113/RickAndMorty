@@ -1,8 +1,20 @@
-# NetworkModel
+# Rick & Morty Dictionary
 
-Network Model 설계를 연습합니다.
-Rick And Morty API를 사용하여 Model을 설계해봅니다.
+[![Swift Version][swift-image]](https://swift.org/)
+[![Xcode Version][Xcode-image]](https://developer.apple.com/kr/xcode/)
+[![Platform][Platform-image]](https://developer.apple.com/kr/ios/)
 
----
+[swift-image]:https://img.shields.io/badge/Swift-5.9-orange?style=flat
+[Xcode-image]: https://img.shields.io/badge/Xcode-15.2-blue?style=flat
+[Platform-image]: https://img.shields.io/badge/iOS-16.0+-blue?style=flat
+API Server: [Rick And Morty API](https://rickandmortyapi.com/)
 
-Exmaple API Server: [Rick And Morty API](https://rickandmortyapi.com/)
+# Description
+Rick And Morty Fan App
+
+Seaching Character, Location, Episode
+
+# Tech Stack
+```
+SwiftUI, MVVM
+```
