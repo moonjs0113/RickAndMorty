@@ -10,8 +10,12 @@ import UIKit
 enum DataType: CaseIterable {
     case character, location, episode
     
-    var defaultImageName: String {
-        "\(self)Image"
+    public var toString: String {
+        "\(self)"
+    }
+    
+    public var defaultImageName: String {
+        "\(toString)Image"
     }
     
     public var title: String {
@@ -19,8 +23,7 @@ enum DataType: CaseIterable {
         return title.removeFirst().uppercased() + title
     }
     
-    public var image: UIImage {
-        print(defaultImageName)
+    public var defaultImage: UIImage {
         return UIImage(named: defaultImageName)!
     }
 }

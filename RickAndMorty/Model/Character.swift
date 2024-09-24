@@ -10,6 +10,10 @@ import Foundation
 struct Character: ModelProtocol {    
     typealias FilterType = CharacterFilter
     
+    static var dataType: DataType {
+        return .character
+    }
+    
     let id: Int
     let name: String
 

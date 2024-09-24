@@ -25,11 +25,11 @@ struct HomeView: View {
                                 
                             } label: {
                                 VStack {
-                                    Image(uiImage: type.image)
+                                    Image(uiImage: type.defaultImage)
                                         .resizable()
                                         .aspectRatio(1, contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                                         .clipShape(
-                                            RoundedRectangle(cornerRadius: 10000)
+                                            RoundedRectangle(cornerRadius: 15)
                                         )
                                     Text(type.title)
                                         .foregroundStyle(Color.text)
@@ -63,44 +63,13 @@ struct HomeView: View {
         .navigationTitle("Rick & Morty")
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
-            viewModel.fetchTotalCount()
+            Task {
+                await viewModel.fetchTotalCount()
+            }
+            
         }
     }
 }
-
-//struct ContentOffsetKey: PreferenceKey {
-//    typealias Value = CGFloat
-//    static var defaultValue = CGFloat.zero
-//    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
-//        value += nextValue()
-//    }
-//}
-//
-//struct ObservableScrollView<Content: View>: View {
-//    let content: Content
-//    @Binding var contentOffset: CGFloat
-//
-//    init(contentOffset: Binding<CGFloat>, @ViewBuilder content: () -> Content) {
-//        self._contentOffset = contentOffset
-//        self.content = content()
-//    }
-//
-//    var body: some View {
-//        ScrollView {
-//            content
-//                .background {
-//                    GeometryReader { geometry in
-//                        Color.clear
-//                            .preference(key: ContentOffsetKey.self, value: geometry.frame(in: .named("scrollView")).minY)
-//                    }
-//                }
-//        }
-//        .coordinateSpace(name: "scrollView")
-//        .onPreferenceChange(ContentOffsetKey.self) { value in
-//            self.contentOffset = value
-//        }
-//    }
-//}
 
 #Preview {
     HomeView()
