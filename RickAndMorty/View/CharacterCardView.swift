@@ -1,6 +1,6 @@
 //
 //  CharacterCardView.swift
-//  NetworkModel
+//  RickAndMorty
 //
 //  Created by Moon Jongseek on 9/22/24.
 //

@@ -1,6 +1,6 @@
 //
-//  NetworkModelApp.swift
-//  NetworkModel
+//  RickAndMortyApp.swift
+//  RickAndMorty
 //
 //  Created by Moon Jongseek on 2022/07/01.
 //
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct NetworkModelApp: App {
+struct RickAndMortyApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
