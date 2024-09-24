@@ -1,6 +1,6 @@
 //
 //  HomeView.swift
-//  NetworkModel
+//  RickAndMorty
 //
 //  Created by Moon Jongseek on 2022/07/01.
 //
