@@ -54,7 +54,6 @@ struct CharacterCardView: View {
             RoundedRectangle(cornerRadius: 5)
                 .stroke(Color.gray, lineWidth: 2)
         }
-
         .onAppear {
             Task {
                 if let data = try? await NetworkService.imageLoad(from: imageURL) {
