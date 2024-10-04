@@ -75,6 +75,16 @@ extension NetworkManager {
     }
     
     func request<D: Codable>(
+        to urlString: String
+    ) async throws -> D {
+        let data = try await request(to: urlString)
+        guard let result = try? JSONDecoder().decode(D.self, from: data) else {
+            throw NetworkError.errorDecodingJson
+        }
+        return result
+    }
+    
+    func request<D: Codable>(
         from endPoint: DataType,
         with queryParameters: String
     ) async throws -> D {

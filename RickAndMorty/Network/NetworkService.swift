@@ -12,6 +12,11 @@ typealias NetworkClosure<D: Codable> = (D?, NetworkError?) -> Void
 enum NetworkService {
     private static let manager = NetworkManager()
     
+    // Single Object From URL String
+    static func getSingleObject<M: ModelProtocol>(from urlString: String) async throws -> M {
+        try await manager.request(to: urlString)
+    }
+    
     // Single Object From ID
     static func getSingleObject<M: ModelProtocol>(fromID id: Int) async throws -> M {
         try await manager.request(from: M.dataType, with: "\(id)")
