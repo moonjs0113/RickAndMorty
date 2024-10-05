@@ -54,15 +54,13 @@ struct CharacterCardView: View {
             RoundedRectangle(cornerRadius: 5)
                 .stroke(Color.gray, lineWidth: 2)
         }
-
         .onAppear {
-            NetworkService.requestImageData(from: imageURL) { (data, error) in
-                guard let data = data else {
-                    //                    print(error)
-                    self.image = UIImage.characterImage
-                    return
+            Task {
+                if let data = try? await NetworkService.imageLoad(from: imageURL) {
+                    self.image = UIImage(data: data)
+                } else {
+                    self.image = Character.dataType.defaultImage
                 }
-                self.image = UIImage(data: data)
             }
         }
     }

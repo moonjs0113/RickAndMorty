@@ -10,6 +10,10 @@ import Foundation
 struct Character: ModelProtocol {    
     typealias FilterType = CharacterFilter
     
+    static var dataType: DataType {
+        return .character
+    }
+    
     let id: Int
     let name: String
 
@@ -59,6 +63,12 @@ struct Character: ModelProtocol {
             }
         }
     }
+    
+    static let sampleData: Self = {
+        let url = Bundle.main.url(forResource: "SampleSingleCharacter", withExtension: "json")!
+        let data = (try? JSONDecoder().decode(Self.self, from: Data(contentsOf: url)))!
+        return data
+    }()
 }
 
 struct CharacterLocation: Codable {

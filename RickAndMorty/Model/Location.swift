@@ -10,6 +10,10 @@ import Foundation
 struct Location: ModelProtocol {
     typealias FilterType = LocationFilter
     
+    static var dataType: DataType {
+        return .location
+    }
+    
     let id: Int
     let name: String
     let type: String?

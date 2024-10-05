@@ -10,6 +10,10 @@ import Foundation
 struct Episode: ModelProtocol {
     typealias FilterType = EpisodeFilter
     
+    static var dataType: DataType {
+        return .episode
+    }
+    
     let id: Int
     let name: String
     let air_date: String?

@@ -12,38 +12,23 @@ final class HomeViewModel<M: ModelProtocol>: ObservableObject {
     private var randomID: [Int] = []
     @Published var models: [M] = []
     
-    public func fetchTotalCount() {
-        if totalCount == 0 {
-            DispatchQueue.global().async { [weak self] in
-                guard let self = self else { return }
-                NetworkService.requestTotalObject(as: M.self, pageURL: nil) { info, error in
-                    guard let info = info, error == nil else {
-                        if let error = error {
-                            debugPrint(error)
-                        }
-                        return
-                    }
-                    self.totalCount = info.info.count
-                    self.fetchRandomCharaterData()
-                }
+    public func fetchTotalCount() async {
+        do {
+            if totalCount == 0 {
+                let data: ModelList<M> = try await NetworkService.getObjectPage()
+                totalCount = data.info.count
             }
+            try await fetchRandomCharaterData()
+        } catch(let e) {
+            print(e)
         }
-        else { fetchRandomCharaterData() }
     }
     
-    private func fetchRandomCharaterData() {
+    private func fetchRandomCharaterData() async throws {
         let randomID = (0..<6).compactMap { _ in (1...self.totalCount).randomElement() }
-        NetworkService.requestMultipleObjects(as: M.self, id: randomID) {model, error in
-            guard let model = model, error == nil else {
-                if let error = error {
-                    debugPrint(error)
-                }
-                return
-            }
-            DispatchQueue.main.async {  [weak self] in
-                guard let self = self else { return }
-                self.models = model
-            }
+        let data: [M] = try await NetworkService.getMultipleObjects(fromIDs: randomID)
+        Task(priority: .high) { [weak self] in
+            self?.models = data
         }
     }
 }
