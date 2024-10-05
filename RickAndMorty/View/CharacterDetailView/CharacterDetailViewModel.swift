@@ -27,9 +27,11 @@ final class CharacterDetailViewModel: ObservableObject {
     
     private func fetchEpisode() {
         for episodeURL in model.episode {
-            Task { [weak self] in
+            Task {
                 if let episode: Episode = try? await NetworkService.getSingleObject(from: episodeURL) {
-                    self?.episode = (self?.episode ?? []) + [episode]
+                    DispatchQueue.main.async {
+                        self.episode.append(episode)
+                    }
                 }
             }
         }

@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct CharacterDetailView: View {
-    @ObservedObject var viewModel: CharacterDetailViewModel
+    @StateObject var viewModel: CharacterDetailViewModel
     
     init(data: Character) {
-        self.viewModel = CharacterDetailViewModel(model: data)
+        self._viewModel = StateObject(wrappedValue: CharacterDetailViewModel(model: data))
+        
     }
     
     var body: some View {
@@ -41,20 +42,23 @@ struct CharacterDetailView: View {
                                 Text("Episode")
                                     .font(.title3)
                                     CardPagerView(
+//                                        data: viewModel.model.episode
                                         data: viewModel.episode
-                                    ) { episode  in
-                                        VStack {
-                                            Text("\(episode.episode ?? "")")
+                                    ) { (episode: Episode) in
+                                        VStack(alignment: .leading) {
+                                            Text("Episode ID: \(episode.episode ?? "")")
                                                 .font(.subheadline)
                                             Text("\(episode.name)")
                                             Text("\(episode.air_date ?? "")")
                                             Spacer()
                                         }
-                                        .onAppear {
-                                            print(episode)
+                                        .padding()
+                                        .overlay {
+                                            RoundedRectangle(cornerRadius: 20)
+                                                .stroke(Color.gray, lineWidth: 2)
                                         }
                                     }
-                                    .frame(height: 200)
+                                    .frame(height: 100)
                             }
                             .padding(.top, 10)
                         }

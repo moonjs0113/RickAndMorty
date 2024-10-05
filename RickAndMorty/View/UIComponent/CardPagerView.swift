@@ -7,13 +7,12 @@
 
 import SwiftUI
 
-struct CardPagerView<D: Identifiable, Content>: View where Content : View {
-    @State var dataList: [D] = []
+struct CardPagerView<D: ModelProtocol, Content: View>: View {
+    var data: [D]
     let content: (D) -> Content
-    
-    
+
     init(data: [D], @ViewBuilder content: @escaping (D) -> Content) {
-        self.dataList = data
+        self.data = data
         self.content = content
     }
     
@@ -21,7 +20,7 @@ struct CardPagerView<D: Identifiable, Content>: View where Content : View {
         GeometryReader { proxy in
             ScrollView(.horizontal) {
                 LazyHStack(alignment: .center) {
-                    ForEach(dataList, id: \.self.id) { data in
+                    ForEach(data, id: \.self.id) { data in
                         HStack {
                             Spacer(minLength: proxy.size.width * 0.05)
                             content(data).clipShape(
@@ -44,12 +43,12 @@ struct CardPagerView<D: Identifiable, Content>: View where Content : View {
     }
 }
 
-//#Preview {
-//    CardPagerView(
-//        data: .constant([Character.sampleData]),
-//        content: { data in
-//            Text("\(data.name)")
-//        }
-//    )
-//        .preferredColorScheme(.dark)
-//}
+#Preview {
+    CardPagerView(
+        data: [Character.sampleData],
+        content: { data in
+            Text("\(data.name)")
+        }
+    )
+        .preferredColorScheme(.dark)
+}
